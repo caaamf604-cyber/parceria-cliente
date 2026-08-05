@@ -1,1 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parceria com Cliente | Carol Martins Nail Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sky:#ece3d8;
+    --sky-soft:#f5efe6;
+    --sky-deep:#ddccb0;
+    --ink:#5c4a34;
+    --ink-soft:#8a7860;
+    --card:#fffdfa;
+    --gold:#b3915a;
+    --radius:22px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--sky);
+    font-family:'Cormorant Garamond', serif;
+    font-weight:400;
+    color:var(--ink);
+    display:flex;
+    justify-content:center;
+  }
+  .phone{
+    width:100%;
+    max-width:480px;
+    background:var(--sky);
+    min-height:100vh;
+    padding:0 0 60px;
+    position:relative;
+  }
+  .phone::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    max-width:480px;
+    margin:0 auto;
+    background:
+      radial-gradient(circle at 15% 8%, rgba(255,255,255,0.5), transparent 40%),
+      radial-gradient(circle at 85% 92%, rgba(255,255,255,0.4), transparent 45%);
+    pointer-events:none;
+    z-index:0;
+  }
+  header.hero{
+    position:relative;
+    z-index:1;
+    text-align:center;
+    padding:56px 24px 30px;
+  }
+  .hero-title{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:44px;
+    line-height:1.15;
+    letter-spacing:2px;
+    margin:0;
+    color:var(--gold);
+  }
+  .tagline{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:18px;
+    color:var(--ink-soft);
+    margin-top:14px;
+  }
+  .pill-row{
+    position:relative;
+    z-index:1;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    padding:10px 24px 34px;
+  }
+  .pill{
+    background:var(--card);
+    border-radius:30px;
+    padding:12px 20px;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:15px;
+    letter-spacing:0.5px;
+    color:var(--ink);
+    box-shadow:0 6px 16px rgba(120,95,55,0.12);
+  }
+  .cta{
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    margin:0 24px 8px;
+    background:var(--ink);
+    color:#fff;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    letter-spacing:2px;
+    font-size:16px;
+    padding:16px 20px;
+    border-radius:30px;
+    box-shadow:0 10px 20px rgba(92,74,52,0.3);
+    transition:transform .15s ease, box-shadow .15s ease;
+    position:relative;
+    z-index:1;
+  }
+  .cta:hover{ transform:translateY(-2px); box-shadow:0 14px 24px rgba(92,74,52,0.35); }
+  .cta.secondary{
+    background:transparent;
+    color:var(--ink);
+    border:1.5px solid var(--ink);
+    box-shadow:none;
+  }
+  section{
+    position:relative;
+    z-index:1;
+    padding:38px 24px 6px;
+  }
+  .section-title{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:22px;
+    letter-spacing:1px;
+    margin:0 0 14px;
+    color:var(--ink);
+  }
+  .section-title::after{
+    content:"";
+    display:block;
+    width:36px;
+    height:2px;
+    background:var(--gold);
+    margin-top:10px;
+  }
+  p{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:17.5px;
+    line-height:1.75;
+    color:var(--ink);
+    margin:0 0 14px;
+  }
+  .card{
+    background:var(--card);
+    border-radius:var(--radius);
+    padding:26px 24px;
+    box-shadow:0 8px 24px rgba(120,95,55,0.12);
+    margin-bottom:18px;
+  }
+  .card p:last-child{margin-bottom:0;}
+  .highlight{
+    font-weight:500;
+    color:var(--ink);
+  }
+  .faq-title{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:22px;
+    letter-spacing:1px;
+    text-align:center;
+    margin:8px 0 20px;
+  }
+  details.faq{
+    background:var(--card);
+    border-radius:16px;
+    margin-bottom:10px;
+    box-shadow:0 6px 16px rgba(120,95,55,0.10);
+    overflow:hidden;
+  }
+  details.faq summary{
+    list-style:none;
+    cursor:pointer;
+    padding:18px 20px;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:17px;
+    font-weight:500;
+    color:var(--ink);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+  }
+  details.faq summary::-webkit-details-marker{ display:none; }
+  details.faq summary::after{
+    content:"+";
+    font-size:20px;
+    color:var(--gold);
+    flex-shrink:0;
+    transition:transform .2s ease;
+  }
+  details.faq[open] summary::after{
+    transform:rotate(45deg);
+  }
+  details.faq .faq-body{
+    padding:0 20px 18px;
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:16.5px;
+    line-height:1.75;
+    color:var(--ink-soft);
+  }
+  .notice{
+    background:linear-gradient(135deg, #f7e9d7, #f1d9bd);
+    border-radius:var(--radius);
+    padding:28px 24px;
+    text-align:center;
+    box-shadow:0 10px 24px rgba(180,140,80,0.15);
+  }
+  .notice .flag{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:15px;
+    letter-spacing:3px;
+    color:#8a6a3a;
+    margin-bottom:10px;
+    text-transform:uppercase;
+  }
+  .notice p{ font-family:'Cormorant Garamond', serif; color:#5c4726; margin-bottom:10px; }
+  .notice p:last-child{ margin-bottom:0; font-weight:500; }
+  .brand-seal{
+    text-align:center;
+    padding:44px 24px 6px;
+  }
+  .brand-seal .initials{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:34px;
+    color:var(--ink);
+    border:1.5px solid var(--gold);
+    width:76px;
+    height:76px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 12px;
+  }
+  .brand-seal .brand-name{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    letter-spacing:4px;
+    font-size:14px;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+  }
+  .closing{
+    text-align:center;
+    padding:36px 24px 10px;
+  }
+  .closing .line{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:18px;
+    color:var(--ink);
+    line-height:1.9;
+  }
+  footer{
+    text-align:center;
+    padding:30px 24px 0;
+    font-size:11px;
+    letter-spacing:1px;
+    color:var(--ink-soft);
+  }
+</style>
+</head>
+<body>
+<div class="phone">
 
+  <header class="hero">
+    <h1 class="hero-title">Parceria com cliente</h1>
+    <div class="tagline">"Uma forma de nos beneficiar!"</div>
+  </header>
+
+  <div class="pill-row">
+    <div class="pill">vale presente</div>
+    <div class="pill">voucher</div>
+    <div class="pill">cupons de desconto</div>
+    <div class="pill">Atendimento único</div>
+  </div>
+
+  <a href="https://wa.me/qr/WGE4KVKOEDZLB1" class="cta" target="_blank" rel="noopener">Agendar um horário</a>
+
+  <section id="oqueeh">
+    <h2 class="section-title">o que é?</h2>
+    <div class="card">
+      <p>O método parceria com cliente é na verdade uma estratégia de divulgação do meu trabalho através de minhas clientes, ou seja, você!</p>
+      <p>No meu atendimento comum com você eu vou te oferecer automaticamente o meu voucher, o que você precisa fazer é aceitar o vale presente que tu ganhou.</p>
+    </div>
+  </section>
+
+  <section id="comofaco">
+    <h2 class="section-title">como faço pra conseguir?</h2>
+    <div class="card">
+      <p>Na prática o que você precisa fazer mesmo é usar esse voucher que eu vou te dar.</p>
+      <p>Com um voucher você consegue trazer pra mim duas <span class="highlight">(2) clientes</span>, então basicamente você indica meu trabalho até gastar esse voucher, ou seja, até eu ganhar duas (2) clientes por indicação sua.</p>
+    </div>
+  </section>
+
+  <section id="indicadas">
+    <h2 class="section-title">o que as indicadas por você ganham?</h2>
+    <div class="card">
+      <p>As clientes indicadas por você irão ganhar um <span class="highlight">(1) cupom de desconto</span> no primeiro atendimento.</p>
+      <p class="highlight" style="font-size:17px;">No valor de 20% de desconto!</p>
+    </div>
+  </section>
+
+  <section id="voceganha">
+    <h2 class="section-title">o que você vai ganhar com isso?</h2>
+    <div class="card">
+      <p>Você que aceita meu voucher é quem mais vai ganhar.</p>
+      <p>Quando eu atender as duas (2) pessoas indicadas por você, seu próximo atendimento será com um desconto de</p>
+      <p class="highlight" style="font-size:24px; font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:600; color:var(--gold);">50% OFF</p>
+      <p style="font-size:13px; color:var(--ink-soft);">Observação: o voucher tem validade de prazo! Após você aceitar o meu voucher, contando 30 dias, ele não vale mais.</p>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2 class="faq-title">Dúvidas frequentes</h2>
+
+    <details class="faq">
+      <summary>E se eu não quiser aceitar o voucher?</summary>
+      <div class="faq-body">Lembrando que a escolha é sua, o voucher é apenas um método de estratégia que beneficia tanto eu como você e a quem você me indicar!</div>
+    </details>
+
+    <details class="faq">
+      <summary>Posso pegar mais de um voucher de uma vez?</summary>
+      <div class="faq-body">Não! Os vouchers são liberados um (1) por cliente em um rodízio aleatório.</div>
+    </details>
+
+    <details class="faq">
+      <summary>O que eu faço se não indicar ninguém dentro do prazo?</summary>
+      <div class="faq-body">Caso isso aconteça seu voucher perdeu a validade, então depois do período de 30 dias não tem como você indicar dentro dessa parceria!</div>
+    </details>
+
+    <details class="faq">
+      <summary>E se a pessoa não vier ou só vier uma pessoa indicada?</summary>
+      <div class="faq-body">Nega, a validação do seu voucher só acontece após as DUAS (2) pessoas indicadas por você virem ter o atendimento comigo!</div>
+    </details>
+
+    <details class="faq">
+      <summary>As pessoas indicadas precisam falar meu nome?</summary>
+      <div class="faq-body">Sim! Só assim vou saber e conseguir liberar o cupom de desconto tanto pra você que me indicou quanto pra quem veio por indicação.</div>
+    </details>
+
+    <details class="faq">
+      <summary>Se eu indicar mais de duas pessoas, tenho dois descontos?</summary>
+      <div class="faq-body">Não! É uma parceria pessoal.</div>
+    </details>
+
+    <details class="faq">
+      <summary>O voucher pode ser transferido?</summary>
+      <div class="faq-body">Não! Lembre-se que a parceria libera apenas um (1) voucher por cliente. Mas, sinta-se à vontade para indicar meu trabalho a quem desejar!!!</div>
+    </details>
+
+    <details class="faq">
+      <summary>E se eu atrasar ou faltar?</summary>
+      <div class="faq-body">Lembre-se! Seu horário já está agendado, caso aconteça um imprevisto avise ou reagende com no mínimo 24 horas de antecedência. Caso contrário você perderá o benefício do voucher!</div>
+    </details>
+
+    <details class="faq">
+      <summary>Por que estou fazendo esse método?</summary>
+      <div class="faq-body">Estou em fase de expansão e quero crescer através da sua indicação!</div>
+    </details>
+  </section>
+
+  <section id="atencao">
+    <div class="notice">
+      <div class="flag">Atenção</div>
+      <p>Serão selecionadas cinco (5) clientes a cada dois (2) meses para ganhar o meu voucher.</p>
+      <p>Então, não são todas as minhas clientes que irão receber o convite!</p>
+      <p>Mas, serão sempre clientes diferentes que serão escolhidas para participar desse método parceria com cliente.</p>
+    </div>
+  </section>
+
+  <div class="brand-seal">
+    <div class="initials">CM</div>
+    <div class="brand-name">Nail Designer</div>
+  </div>
+
+  <div class="closing">
+    <div class="line">
+      seu poder · sua escolha<br>
+      seu momento · sua melhor versão
+    </div>
+  </div>
+
+  <a href="https://wa.me/qr/WGE4KVKOEDZLB1" class="cta secondary" target="_blank" rel="noopener" style="margin-top:26px;">Agendar um horário</a>
+
+  <footer>
+    © Carol Martins · Todos os direitos reservados
+  </footer>
+
+</div>
+</body>
+</html>
